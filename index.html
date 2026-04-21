@@ -21,11 +21,71 @@ th {
 /* Nếu muốn bảng full màn hình */
 .table-full {
     width: 100%;
-}</style>
+}
+  
+  table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Zebra stripe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: #f1f7ff;
+    transition: 0.3s;
+}
+
+/* Link đẹp hơn */
+a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Cột STT căn giữa */
+td:first-child, th:first-child {
+    text-align: center;
+    width: 60px;
+}
+
+/* Cột Name rộng hơn */
+td:nth-child(2), th:nth-child(2) {
+    width: 40%;
+}
+  
+  </style>
 </head>
   <center><a href='/'><img src='/hung-blog-webp.png'/></a></center>
   <body><center>
-    <table border="1" style="border-collapse: collapse; width: 50%;">
+    <table> <!-- border="1" style="border-collapse: collapse; width: 50%; -->
   <thead>
     <tr style="background-color: #f2f2f2;">
       <th>STT</th>
