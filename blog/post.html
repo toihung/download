@@ -1,4 +1,88 @@
 <ul id="fileList"></ul>
+<style>/* ===== Container ===== */
+#fileList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* ===== Item ===== */
+#fileList li {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .25s ease;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Hover hiệu ứng */
+#fileList li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== Link ===== */
+#fileList li a {
+  display: block;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* Icon trước tiêu đề */
+#fileList li a::before {
+  content: "📄";
+  margin-right: 8px;
+}
+
+/* Hover link */
+#fileList li a:hover {
+  color: #0d6efd;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #fileList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  #fileList {
+    grid-template-columns: 1fr;
+  }
+}
+
+#fileList li {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+  #fileList li a::after {
+  content: "Download";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  background: #0d6efd;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+  #fileList li:active {
+  transform: scale(0.97);
+}
+</style>
+
+
 
 <script>
 fetch('https://download.hungblog.com/blog/data.json')
