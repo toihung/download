@@ -1,0 +1,30 @@
+<ul id="postList"></ul>
+
+<script>
+fetch("https://www.hungblog.com/feeds/posts/default?alt=json&max-results=10")
+  .then(res => res.json())
+  .then(data => {
+    const posts = data.feed.entry;
+    const container = document.getElementById("postList");
+
+    posts.forEach(post => {
+      let title = post.title.$t;
+      let link = post.link.find(l => l.rel === "alternate").href;
+
+      // Lấy ảnh
+      let img = post.media$thumbnail
+        ? post.media$thumbnail.url.replace("s72-c", "s300")
+        : "https://via.placeholder.com/300";
+
+      let li = document.createElement("li");
+      li.innerHTML = `
+        <a href="${link}" target="_blank">
+          <img src="${img}" />
+          <p>${title}</p>
+        </a>
+      `;
+
+      container.appendChild(li);
+    });
+  });
+</script>
