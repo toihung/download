@@ -9,22 +9,16 @@ fetch("https://www.hungblog.com/feeds/posts/default?alt=json&max-results=10")
 
     posts.forEach(post => {
       let title = post.title.$t;
+
+      // Lấy link bài viết
       let link = post.link.find(l => l.rel === "alternate").href;
 
-      // Lấy ảnh
-      let img = post.media$thumbnail
-        ? post.media$thumbnail.url.replace("s72-c", "s300")
-        : "https://via.placeholder.com/300";
-
+      // Tạo HTML
       let li = document.createElement("li");
-      li.innerHTML = `
-        <a href="${link}" target="_blank">
-          <img src="${img}" />
-          <p>${title}</p>
-        </a>
-      `;
+      li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
 
       container.appendChild(li);
     });
-  });
+  })
+  .catch(err => console.error(err));
 </script>
